@@ -18,7 +18,7 @@ if not game.PlaceId == 17625359962 then
 		Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 	}
 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/pasteisback/PasteClient/refs/heads/main/PlayerHud"))()
+   -- loadstring(game:HttpGet("https://raw.githubusercontent.com/pasteisback/PasteClient/refs/heads/main/PlayerHud"))()
 
 
 	local Options = Fluent.Options
