@@ -1,0 +1,167 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local hudboobs = Instance.new("ScreenGui")
+local fpsFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local PingFrame = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local nameFrame = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+local UICorner_6 = Instance.new("UICorner")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+
+--Properties:
+
+hudboobs.Name = "hudboobs"
+hudboobs.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+hudboobs.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+fpsFrame.Name = "fpsFrame"
+fpsFrame.Parent = hudboobs
+fpsFrame.BackgroundColor3 = Color3.fromRGB(130, 131, 204)
+fpsFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+fpsFrame.Position = UDim2.new(0.15639849, 0, 0.0128845135, 0)
+fpsFrame.Size = UDim2.new(0.100426771, 0, 0.0528813563, 0)
+
+UICorner.Parent = fpsFrame
+
+TextLabel.Parent = fpsFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 150, 204)
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.Position = UDim2.new(0.05089394, 0, 0.149884582, 0)
+TextLabel.Size = UDim2.new(0.897063017, 0, 0.61705935, 0)
+TextLabel.Font = Enum.Font.Gotham
+TextLabel.Text = "100 fps"
+TextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel.TextStrokeTransparency = 0.830
+TextLabel.TextWrapped = true
+
+UICorner_2.Parent = TextLabel
+
+UITextSizeConstraint.Parent = TextLabel
+UITextSizeConstraint.MaxTextSize = 14
+
+PingFrame.Name = "PingFrame"
+PingFrame.Parent = hudboobs
+PingFrame.BackgroundColor3 = Color3.fromRGB(130, 131, 204)
+PingFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+PingFrame.Position = UDim2.new(0.272638857, 0, 0.0128845135, 0)
+PingFrame.Size = UDim2.new(0.100426771, 0, 0.0528813563, 0)
+
+UICorner_3.Parent = PingFrame
+
+TextLabel_2.Parent = PingFrame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(0, 150, 204)
+TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_2.Position = UDim2.new(0.0508938953, 0, 0.149884626, 0)
+TextLabel_2.Size = UDim2.new(0.897063017, 0, 0.61705935, 0)
+TextLabel_2.Font = Enum.Font.Gotham
+TextLabel_2.Text = "100 ms"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextStrokeColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel_2.TextStrokeTransparency = 0.830
+TextLabel_2.TextWrapped = true
+
+UICorner_4.Parent = TextLabel_2
+
+UITextSizeConstraint_2.Parent = TextLabel_2
+UITextSizeConstraint_2.MaxTextSize = 14
+
+nameFrame.Name = "nameFrame"
+nameFrame.Parent = hudboobs
+nameFrame.BackgroundColor3 = Color3.fromRGB(130, 131, 204)
+nameFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+nameFrame.Position = UDim2.new(0.0354545377, 0, 0.0128845163, 0)
+nameFrame.Size = UDim2.new(0.11001379, 0, 0.0528813489, 0)
+
+UICorner_5.Parent = nameFrame
+
+TextLabel_3.Parent = nameFrame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(0, 150, 204)
+TextLabel_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_3.Position = UDim2.new(0.0508939996, 0, 0.149884611, 0)
+TextLabel_3.Size = UDim2.new(0.897062957, 0, 0.61705935, 0)
+TextLabel_3.Font = Enum.Font.Gotham
+TextLabel_3.Text = "Hello, PasteClientakajimbooberator"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextStrokeColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel_3.TextStrokeTransparency = 0.830
+TextLabel_3.TextWrapped = true
+
+UICorner_6.Parent = TextLabel_3
+
+UITextSizeConstraint_3.Parent = TextLabel_3
+UITextSizeConstraint_3.MaxTextSize = 14
+
+-- Scripts:
+
+local function KAGZM_fake_script() -- TextLabel.Fps 
+	local script = Instance.new('LocalScript', TextLabel)
+
+	local t = tick()
+	
+	local count = 0
+	
+	local fps = 60
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		count = count + 1
+		if tick()-t >= 1 then
+			fps = count
+			count = 0
+			t = tick()
+			if fps >= 50 then
+				script.Parent.TextColor3 = Color3.fromRGB(0, 255, 0)
+			end
+			if fps < 50 then
+				script.Parent.TextColor3 = Color3.fromRGB(255, 173, 51)
+			end
+			if fps < 30 then
+				script.Parent.TextColor3 = Color3.fromRGB(255, 0, 0)
+			end
+			script.Parent.Text = "FPS: "..fps
+		end
+	end)
+end
+coroutine.wrap(KAGZM_fake_script)()
+local function VOTJY_fake_script() -- TextLabel_2.Server_Main 
+	local script = Instance.new('Script', TextLabel_2)
+
+	script.Parent.A.OnServerInvoke=(function()
+	return nil
+	end)
+end
+coroutine.wrap(VOTJY_fake_script)()
+local function QCVPAT_fake_script() -- TextLabel_2.Client_Main 
+	local script = Instance.new('LocalScript', TextLabel_2)
+
+	while true do wait(0.4)
+	local thistime=tonumber(tick())
+	script.Parent.A:InvokeServer()
+	script.Parent.Text=string.format(tostring(math.floor((tick()-thistime)*1150)).." ms.")
+	end
+end
+coroutine.wrap(QCVPAT_fake_script)()
+local function KTIHLF_fake_script() -- TextLabel_3.Name 
+	local script = Instance.new('LocalScript', TextLabel_3)
+
+	script.Parent.Text = game.Players.LocalPlayer.DisplayName
+end
+coroutine.wrap(KTIHLF_fake_script)()
