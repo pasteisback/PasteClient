@@ -403,7 +403,7 @@ end)
 			end
 		})
 
-		local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Fly", Default = false })
+		local Toggle = Tabs.Character:AddToggle("MyToggle", {Title = "Fly", Default = false })
 
 		Toggle:OnChanged(function()
 			local Val = Options.MyToggle.Value
@@ -413,7 +413,7 @@ end)
                 Unfly()
             end
 		end)
-        Tabs.Main:AddButton({
+        Tabs.Character:AddButton({
             Title = "Noclip",
             Description = "beta",
             Callback = function()
